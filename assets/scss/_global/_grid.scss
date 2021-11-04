@@ -1,0 +1,76 @@
+section {
+    margin: 0 auto 12rem auto;
+    position: relative;
+
+    @media screen and (max-width: 1024px) {
+        margin: 0 auto 6rem auto;
+    }
+}
+
+.row {
+    position: relative;
+    margin: 0 auto;
+    max-width: $row-width;
+    width: $container-width;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
+  
+    @media #{$sm-only}{
+        padding: 0 1.2rem;
+    }
+}
+  
+[class*="column-"] {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding-left: $column-gutter/2;
+    padding-right: $column-gutter/2;
+
+    @media #{$sm-only} {
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+    }
+}
+
+
+
+// Create selectors for each media query
+@each $bp in $bps {
+    // Get name and prefix of media query
+    $key: nth($bp, 1);
+    $value: nth($bp, 2);
+
+    @media #{$key} {
+        @include selector('.flex', $value) {
+            display: flex !important;
+        }
+
+        @include selector('.inl-flex', $value) {
+            display: inline-flex !important;
+        }
+
+        // grid classes
+        @for $i from 1 through $total-columns {
+            $column-width-percent: (100% * ($i*($column-width+$column-gutter))) / $row-width;
+
+            @include selector('.column-#{$i}', $value) {
+                width: $column-width-percent;
+                max-width: $column-width-percent;
+                flex: 0 0 $column-width-percent;
+            }
+
+            @include selector('.order-#{$i}', $value) {
+                order: $i;
+            }
+
+            @if $i < $total-columns {
+                @include selector('.offset-#{$i}', $value) {
+                    margin-left: $column-width-percent;
+                }
+            }
+        }
+    }
+}

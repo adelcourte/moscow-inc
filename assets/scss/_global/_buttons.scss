@@ -1,0 +1,31 @@
+.button {
+    text-decoration: none;
+    padding: 1.2rem 5.4rem;
+    color: $white;
+    background: $black_deep;
+    border-radius: 500rem;
+    transition: 0.2s ease;
+    width: fit-content;
+    margin: auto;
+    border: none;
+
+    @media screen and (max-width: 1024px) {
+        font-size: 1.4rem;
+        padding: 0.8rem 3.2rem;
+    }
+
+    &:hover {
+        cursor: pointer;
+        background: darken($black_deep, 33%);
+    }
+
+    &--white {
+        background: $white;
+        color: $black_deep;
+
+        &:hover {
+            background: $gray_blue;
+            color: $black_deep;
+        }
+    }
+}

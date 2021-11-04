@@ -1,0 +1,40 @@
+.agency {
+    padding-bottom: 29rem;
+    position: relative;
+    z-index: 20;
+
+    @media screen and (max-width: 1024px) {
+        padding-bottom: 10rem;
+    }
+
+    &__content {
+        width: 100%;
+        background: $black_deep;
+        color: $gray_blue;
+
+        * [class*="title"] {
+            color: $white;
+        }
+
+        .row {
+            padding-top: 12rem;
+            padding-bottom: 36rem;
+
+            @media screen and (max-width: 1024px) {
+                padding-bottom: 20rem;
+            }
+        }
+
+        &__image {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%) translateY(50%);
+            content: "";
+            height: auto;
+            background: url('../images/agency/office.jpeg') no-repeat center/cover;
+            aspect-ratio: 1.6 / 1;
+            box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+        }
+    }
+}

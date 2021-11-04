@@ -1,0 +1,61 @@
+.news {
+    .row {
+        align-items: flex-end;
+    }
+
+    &__panel {
+        width: 100%;
+        background: $gray_blue;
+        padding: 14rem 3.2rem 10rem 3.2rem;
+        box-sizing: border-box;
+
+        .title {
+            font-size: 4rem !important;
+            line-height: 4.4rem !important;
+            font-weight: 700;
+
+            @media screen and (max-width: 1024px) {
+                font-size: 3.2rem !important;
+                line-height: 3.6rem !important;
+            }
+        }
+
+        @media screen and (max-width: 1024px) {
+            background: none;
+            padding: 0;
+            padding-bottom: 2.4rem;
+        }
+    }
+
+    &__post {
+        padding-bottom: 2.4rem;
+
+        .infos {
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+            color: $gray_deep;
+            margin-bottom: 0.8rem;
+            font-family: $spectral;
+            display: inline-block;
+        }
+
+        .title {
+            font-size: 2rem;
+            line-height: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.6rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .link {
+            font-size: 1.4rem;
+            text-decoration: none;
+            font-weight: 700;
+        }
+    }
+}
